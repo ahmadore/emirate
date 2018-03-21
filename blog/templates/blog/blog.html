@@ -1,0 +1,56 @@
+{% load static %}
+<div class="kode_sab_banner_wrap them_overlay">
+    <!--CONTAINER START-->
+    <div class="container">
+        <div class="sab_banner_text">
+            <h2>Blog List</h2>
+            <ul class="breadcrumbs">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><strong>Blog List</strong></li>
+            </ul>
+        </div>
+    </div>
+    <!--CONTAINER END-->
+</div>
+<!--KODE SAB BANNER WRAP END-->
+
+<!--KODE BLOG MADIUM WRAP START-->
+<div class="kode_blog_madium_wrap">
+    <!--CONTAINER START-->
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-md-6">
+                    <div class="kode_blog_des">
+                        <figure class="them_overlay">
+                            <img src="{% static post.image.url %}" alt="" style="max-height:230px">
+                            <a data-rel="prettyPhoto" class="expand_btn btn_hover2" href="extra-images/blog01.jpg"><i class="fa fa-expand"></i></a>
+                        </figure>
+                        <div class="kode_blog_text">
+                            <h4><a href="blog.html#">{{ post.title }}</a></h4>
+                            <ul class="kode_meta meta_2">
+                                <li><a href="blog.html#"><i class="fa fa-clock-o"></i>{{ post.created_at }}</a></li>
+                                <li><a href="blog.html#"><i class="fa fa-user"></i>By Admin</a></li>
+                            </ul>
+                            <p>{{ post.article|truncatechars:100 }}</p>
+                            <a class="medium_btn background-bg-dark btn_hover hvr-wobble-bottom" href="blog/detail/{{post.id}}">See More</a>
+                            <a class="share_link hvr-ripple-out" href="blog.html#"><i class="fa fa-share-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!--KODE PAGINATION LIST START-->
+            <div class="kode_pagination_list">
+                <ul class="kode_pagination">
+                    <li><a class="prve" href="blog.html#"><i class="fa fa-arrow-left"></i>Previous</a></li>
+                    <li><a href="blog.html#">1</a></li>
+                    <li><a href="blog.html#">2</a></li>
+                    <li><a href="blog.html#">3</a></li>
+                    <li><a class="next" href="blog.html#">Next<i class="fa fa-arrow-right"></i></a></li>
+                </ul>
+            </div>
+            <!--KODE PAGINATION LIST END-->
+        </div>
+    </div>
+    <!--CONTAINER END-->
+</div>
